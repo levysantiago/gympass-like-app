@@ -1,0 +1,8 @@
+# dependencies
+node_modules
+
+# locks
+yarn.lock
+
+# build
+build
