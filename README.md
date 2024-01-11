@@ -27,6 +27,6 @@ GymPass style app
 # RNF
 
 - [ ] A senha do usuário precisa estar criptografada
-- [ ] Os dados da aplicaçào precisam estar persistidos em um banco PostgreSQL
+- [ ] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
 - [ ] Todas as listas de dados precisam estar paginadas com 20 items por página
 - [ ] O usuário deve ser identificado por um JWT
