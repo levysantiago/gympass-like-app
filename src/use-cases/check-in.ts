@@ -1,28 +1,39 @@
-import { CheckIn, } from "@prisma/client";
+import { CheckIn } from "@prisma/client";
 import { CheckInsRepository } from "@/repositories/check-ins-repository";
+import { date } from "zod";
 
-interface ICheckInUseCaseRequest{
-  userId: string
-  gymId: string
+interface ICheckInUseCaseRequest {
+  userId: string;
+  gymId: string;
 }
 
-interface ICheckInUseCaseResponse{
-  checkIn: CheckIn
+interface ICheckInUseCaseResponse {
+  checkIn: CheckIn;
 }
 
-export class CheckInUseCase{
-  constructor(
-    private checkInsRepository: CheckInsRepository
-  ){}
+export class CheckInUseCase {
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
-  async execute({userId, gymId}: ICheckInUseCaseRequest): Promise<ICheckInUseCaseResponse>{
-    const checkIn = await this.checkInsRepository.create({ 
-      gym_id: gymId, 
-      user_id: userId
-    })
+  async execute({
+    userId,
+    gymId,
+  }: ICheckInUseCaseRequest): Promise<ICheckInUseCaseResponse> {
+    const ckeckInOnSameDay = await this.checkInsRepository.findByUserIdOnDate(
+      userId,
+      new Date()
+    );
+
+    if (ckeckInOnSameDay) {
+      throw new Error();
+    }
+
+    const checkIn = await this.checkInsRepository.create({
+      gym_id: gymId,
+      user_id: userId,
+    });
 
     return {
-      checkIn
-    }
+      checkIn,
+    };
   }
 }

@@ -2,7 +2,7 @@
 
 GymPass style app
 
-# RF 
+# RF
 
 - [x] Deve ser possível se cadastrar
 - [x] Deve ser possível ser possível se autenticar
@@ -18,7 +18,7 @@ GymPass style app
 # RN
 
 - [x] O usuário não deve poder se cadastrar com um email duplicado
-- [ ] O usuário não pode fazer dois check-ins no mesmo dia
+- [x] O usuário não pode fazer dois check-ins no mesmo dia
 - [ ] O usuário não pode fazer check-in se não estiver perto (100m) da academia
 - [ ] O check-in só pode ser validado até 20 mins após ser criado
 - [ ] O check-in só pode ser validado por administradores
