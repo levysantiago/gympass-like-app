@@ -1,11 +1,12 @@
-import { defineConfig } from "vitest/config"
-import tsconfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from 'vitest/config'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
-  test:{
-    coverage:{
-      exclude: ["build"],
-    }
-  }
+  test: {
+    environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+    coverage: {
+      exclude: ['build'],
+    },
+  },
 })
