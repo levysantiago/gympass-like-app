@@ -12,3 +12,6 @@ build
 
 # coverage
 coverage
+
+# File system
+.DS_Store
