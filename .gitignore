@@ -2,7 +2,7 @@
 node_modules
 
 # locks
-yarn.lock
+# yarn.lock
 
 # build
 build
